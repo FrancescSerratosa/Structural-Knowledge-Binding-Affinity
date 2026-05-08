@@ -6,23 +6,26 @@ load('Table1.txt');
 M=Table2;
 Values=Table1;
 
-x1=Values(M(:,1)==1); %mean(x1)
-x2=Values(M(:,2)==1);
-x3=Values(M(:,3)==1);
-x4=Values(M(:,4)==1);
-x5=Values(M(:,5)==1);
-x6=Values(M(:,6)==1);
-x7=Values(M(:,7)==1);
-x8=Values(M(:,8)==1);
+% Person coeficient:
+v=1
 
-y1=Values(M(:,1)==0); %mean(y1)
-y2=Values(M(:,2)==0);
-y3=Values(M(:,3)==0);
-y4=Values(M(:,4)==0);
-y5=Values(M(:,5)==0);
-y6=Values(M(:,6)==0);
-y7=Values(M(:,7)==0);
-y8=Values(M(:,8)==0);
+x1=Values(M(:,1)==1,v); %mean(x1)
+x2=Values(M(:,2)==1,v);
+x3=Values(M(:,3)==1,v);
+x4=Values(M(:,4)==1,v);
+x5=Values(M(:,5)==1,v);
+x6=Values(M(:,6)==1,v);
+x7=Values(M(:,7)==1,v);
+x8=Values(M(:,8)==1,v);
+
+y1=Values(M(:,1)==0,v); %mean(y1)
+y2=Values(M(:,2)==0,v);
+y3=Values(M(:,3)==0,v);
+y4=Values(M(:,4)==0,v);
+y5=Values(M(:,5)==0,v);
+y6=Values(M(:,6)==0,v);
+y7=Values(M(:,7)==0,v);
+y8=Values(M(:,8)==0,v);
 
 size_x(1)=size(x1,1);
 size_y(1)=size(y1,1);
@@ -128,7 +131,7 @@ title('Pearson coefficient. BT=0')
 saveas(gcf,'Pc_BT0.png')
 
 
-%%%%%%%% TABLE 3 GENERATOR
+%%%%%%%% TABLE 4 GENERATOR
 
 h=[]; p=[]; ci=zeros(8,2); stats=[];
 [h(1),p(1),ci(1,:),~] = ttest2(x1, y1, 'Tail','right'); 
@@ -142,7 +145,7 @@ h=[]; p=[]; ci=zeros(8,2); stats=[];
 
 Table3=[h',p']
 
-%%%%%%%% TABLE 4 GENERATOR
+%%%%%%%% TABLE 5 GENERATOR
 
 X=M;
 [num_obs, num_vars] = size(X);
